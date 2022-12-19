@@ -403,26 +403,26 @@ public class TicTacToeGit {
             return;
         }
 
-        if (gameField[0][1].equals(check) && gameField[1][2].equals(check) && gameField[2][3].equals(" ")) {
-            gameField[2][3] = "O";
-            counterXandO++;
-            moveCounter++;
-            return;
-        }
-
-        if (gameField[2][1].equals(" ") && gameField[1][2].equals(check) && gameField[0][3].equals(check)) {
-            gameField[2][1] = "O";
-            counterXandO++;
-            moveCounter++;
-            return;
-        }
-
-        if (gameField[2][1].equals(check) && gameField[1][2].equals(" ") && gameField[0][3].equals(check)) {
-            gameField[1][2] = "O";
-            counterXandO++;
-            moveCounter++;
-            return;
-        }
+//        if (gameField[0][1].equals(check) && gameField[1][2].equals(check) && gameField[2][3].equals(" ")) {
+//            gameField[2][3] = "O";
+//            counterXandO++;
+//            moveCounter++;
+//            return;
+//        }
+//
+//        if (gameField[2][1].equals(" ") && gameField[1][2].equals(check) && gameField[0][3].equals(check)) {
+//            gameField[2][1] = "O";
+//            counterXandO++;
+//            moveCounter++;
+//            return;
+//        }
+//
+//        if (gameField[2][1].equals(check) && gameField[1][2].equals(" ") && gameField[0][3].equals(check)) {
+//            gameField[1][2] = "O";
+//            counterXandO++;
+//            moveCounter++;
+//            return;
+//        }
 
         if (gameField[2][1].equals(check) && gameField[1][2].equals(check) && gameField[0][3].equals(" ")) {
             gameField[0][3] = "O";
