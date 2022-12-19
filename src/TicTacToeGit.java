@@ -381,53 +381,53 @@ public class TicTacToeGit {
                 || (gameField[2][1].equals(xO) && gameField[1][2].equals(xO) && gameField[0][3].equals(xO));
     }
 
-    /**
-     * This method checks two diagonals. If there is two X/O in the diagonal,
-     * O/X occupied third cell (if it is empty).
-     *
-     * @param gameField two-dimensional array.
-     */
-    private static void checkDiagonals(String[][] gameField, String check) {
-
-        if (gameField[0][1].equals(" ") && gameField[1][2].equals(check) && gameField[2][3].equals(check)) {
-            gameField[0][1] = "O";
-            counterXandO++;
-            moveCounter++;
-            return;
-        }
-
-        if (gameField[0][1].equals(check) && gameField[1][2].equals(" ") && gameField[2][3].equals(check)) {
-            gameField[1][2] = "O";
-            counterXandO++;
-            moveCounter++;
-            return;
-        }
-
-        if (gameField[0][1].equals(check) && gameField[1][2].equals(check) && gameField[2][3].equals(" ")) {
-            gameField[2][3] = "O";
-            counterXandO++;
-            moveCounter++;
-            return;
-        }
-
-        if (gameField[2][1].equals(" ") && gameField[1][2].equals(check) && gameField[0][3].equals(check)) {
-            gameField[2][1] = "O";
-            counterXandO++;
-            moveCounter++;
-            return;
-        }
-
-        if (gameField[2][1].equals(check) && gameField[1][2].equals(" ") && gameField[0][3].equals(check)) {
-            gameField[1][2] = "O";
-            counterXandO++;
-            moveCounter++;
-            return;
-        }
-
-        if (gameField[2][1].equals(check) && gameField[1][2].equals(check) && gameField[0][3].equals(" ")) {
-            gameField[0][3] = "O";
-            counterXandO++;
-            moveCounter++;
-        }
-    }
+//    /**
+//     * This method checks two diagonals. If there is two X/O in the diagonal,
+//     * O/X occupied third cell (if it is empty).
+//     *
+//     * @param gameField two-dimensional array.
+//     */
+//    private static void checkDiagonals(String[][] gameField, String check) {
+//
+//        if (gameField[0][1].equals(" ") && gameField[1][2].equals(check) && gameField[2][3].equals(check)) {
+//            gameField[0][1] = "O";
+//            counterXandO++;
+//            moveCounter++;
+//            return;
+//        }
+//
+//        if (gameField[0][1].equals(check) && gameField[1][2].equals(" ") && gameField[2][3].equals(check)) {
+//            gameField[1][2] = "O";
+//            counterXandO++;
+//            moveCounter++;
+//            return;
+//        }
+//
+//        if (gameField[0][1].equals(check) && gameField[1][2].equals(check) && gameField[2][3].equals(" ")) {
+//            gameField[2][3] = "O";
+//            counterXandO++;
+//            moveCounter++;
+//            return;
+//        }
+//
+//        if (gameField[2][1].equals(" ") && gameField[1][2].equals(check) && gameField[0][3].equals(check)) {
+//            gameField[2][1] = "O";
+//            counterXandO++;
+//            moveCounter++;
+//            return;
+//        }
+//
+//        if (gameField[2][1].equals(check) && gameField[1][2].equals(" ") && gameField[0][3].equals(check)) {
+//            gameField[1][2] = "O";
+//            counterXandO++;
+//            moveCounter++;
+//            return;
+//        }
+//
+//        if (gameField[2][1].equals(check) && gameField[1][2].equals(check) && gameField[0][3].equals(" ")) {
+//            gameField[0][3] = "O";
+//            counterXandO++;
+//            moveCounter++;
+//        }
+//    }
 }
