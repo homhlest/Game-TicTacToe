@@ -40,7 +40,7 @@ public class Main {
      */
     private static void startToPlay(String command) {
         if (START.equals(command)) {
-            GameField gameFieldArray = new GameField(3, 5);
+            GameField gameFieldArray = new GameField(3, 3);
             gameFieldArray.outputGameField();
             game(gameFieldArray); // Game.
         } else if ((!EXIT.equals(command))) {
@@ -83,13 +83,19 @@ public class Main {
                 continue;
             }
 
-            if (!gameField.isNotOccupied(c1,c2)) {
+            if (!gameField.isNotOccupied(c1, c2)) {
                 System.out.println("This cell is occupied! Choose another one!");
                 continue;
             }
 
-            gameField.setX(c1, c2); // X moves
-            moveO(gameField); // O moves
+            if (gameField.isNotOccupied(c1, c2)) {
+                gameField.setX(c1, c2); // X moves
+                counterXandO++;
+            }
+
+            if (counterXandO < 9) moveO(gameField); // O moves
+            System.out.println(counterXandO);
+
             if (isResult(gameField)) break; // Result
         }
     }
@@ -105,6 +111,14 @@ public class Main {
         System.out.println("Opponent's move:");
 
         int c1, c2;
+
+        if (moveCounter == 0) checkRowsAndMove(gameField, "O");
+        if (moveCounter == 0) checkColsAndMove(gameField, "O");
+        if (moveCounter == 0) checkDiagonals(gameField, "O");
+
+        if (moveCounter == 0) checkRowsAndMove(gameField, "X");
+        if (moveCounter == 0) checkColsAndMove(gameField, "X");
+        if (moveCounter == 0) checkDiagonals(gameField, "X");
 
         if (moveCounter == 0) {
             while (true) {
@@ -151,7 +165,6 @@ public class Main {
         return true;
     }
 
-
     /**
      * This method checks if is the winner (three X/O in row, three X/O in col, three X/O in diagonals).
      *
@@ -181,12 +194,14 @@ public class Main {
             }
             counter = 0;
         }
-        return false;
 
         // Diagonals.
-//        return (gameField[0][1].equals(xO) && gameField[1][2].equals(xO) && gameField[2][3].equals(xO))
-//                || (gameField[2][1].equals(xO) && gameField[1][2].equals(xO) && gameField[0][3].equals(xO));
-
+        return ((gameField.isCellWithXorO(0, 1, xOrO)
+                && gameField.isCellWithXorO(1, 2, xOrO)
+                && gameField.isCellWithXorO(2, 3, xOrO))
+                || (gameField.isCellWithXorO(2, 1, xOrO)
+                && gameField.isCellWithXorO(1, 2, xOrO)
+                && gameField.isCellWithXorO(0, 3, xOrO)));
     }
 
     /**
@@ -196,6 +211,12 @@ public class Main {
      * @return if there is result of the game.
      */
     private static boolean isResult(GameField gameField) {
+
+        /*Condition for draw.*/
+        if (isWinner(gameField, "X") && isWinner(gameField, "O") || isDraw()) {
+            System.out.println("It's a draw.\n");
+            return true;
+        }
 
         /*Condition for X win.*/
         if (isWinner(gameField, "X")) {
@@ -208,6 +229,130 @@ public class Main {
             return true;
         }
         return false;
+    }
+
+    /**
+     * This method checks if is it draw.
+     *
+     * @return draw.
+     */
+    private static boolean isDraw() {
+        return (counterXandO == 9);
+    }
+
+    /**
+     * This method checks all rows. If there is two similar elements in one row,
+     * third cell will be occupied (if it is empty).
+     *
+     * @param gameField two-dimensional array.
+     */
+    private static void checkRowsAndMove(GameField gameField, String xOrO) {
+        int counter = 0;
+        for (int row = 0; row < gameField.getLengthRow(); row++) {
+            for (int col = 0; col < gameField.getLengthCol(); col++) {
+                if (gameField.isCellWithXorO(row, col, xOrO)) {
+                    counter++;
+
+                    if (counter == 2) {
+
+                        for (int colTemp = 0; colTemp < gameField.getLengthCol(); colTemp++) {
+
+                            if (gameField.isNotOccupied(row,colTemp)) {
+                                gameField.setO(row,colTemp);
+                                counterXandO++;
+                                moveCounter++;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            counter = 0;
+        }
+    }
+
+    /**
+     * This method checks all cols. If there is two similar elements in one diagonal,
+     * third cell will be occupied (if it is empty).
+     *
+     * @param gameField two-dimensional array.
+     */
+    private static void checkColsAndMove(GameField gameField, String xOrO) {
+        int counter = 0;
+
+        for (int col = 0; col < gameField.getLengthCol(); col++) {
+            for (int row = 0; row < gameField.getLengthRow(); row++) {
+
+                if (gameField.isCellWithXorO(row, col, xOrO)) {
+                    counter++;
+
+                    if (counter == 2) {
+
+                        for (int rowTemp = 0; rowTemp < gameField.getLengthRow(); rowTemp++) {
+
+                            if (gameField.isNotOccupied(rowTemp,col)) {
+                                gameField.setO(rowTemp,col);
+                                counterXandO++;
+                                moveCounter++;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            counter = 0;
+        }
+    }
+
+    /**
+     * This method checks two diagonals. If there is two X/O in the diagonal,
+     * O/X occupied third cell (if it is empty).
+     *
+     * @param gameField two-dimensional array.
+     */
+    private static void checkDiagonals(GameField gameField, String xOrO) {
+
+        if (gameField.isNotOccupied(0,1) && gameField.isCellWithXorO(1,2,xOrO) && gameField.isCellWithXorO(2,3,xOrO)) {
+            gameField.setO(0,1);
+            counterXandO++;
+            moveCounter++;
+            return;
+        }
+
+        if (gameField.isCellWithXorO(0,1,xOrO) && gameField.isNotOccupied(1,2) && gameField.isCellWithXorO(2,3,xOrO)) {
+            gameField.setO(1,2);
+            counterXandO++;
+            moveCounter++;
+            return;
+        }
+
+        if (gameField.isCellWithXorO(0,1,xOrO) && gameField.isCellWithXorO(1,2,xOrO) && gameField.isNotOccupied(2,3)) {
+            gameField.setO(2,3);
+            counterXandO++;
+            moveCounter++;
+            return;
+        }
+
+        if (gameField.isNotOccupied(2,1) && gameField.isCellWithXorO(1,2,xOrO) && gameField.isCellWithXorO(0,3,xOrO)) {
+            gameField.setO(2,1);
+            counterXandO++;
+            moveCounter++;
+            return;
+        }
+
+        if (gameField.isCellWithXorO(2,1,xOrO) && gameField.isNotOccupied(1,2) && gameField.isCellWithXorO(0,3,xOrO)) {
+            gameField.setO(1,2);
+            counterXandO++;
+            moveCounter++;
+            return;
+        }
+
+        if (gameField.isCellWithXorO(2,1,xOrO) && gameField.isCellWithXorO(1,2,xOrO) && gameField.isNotOccupied(0,3)) {
+            gameField.setO(0,3);
+            counterXandO++;
+            moveCounter++;
+        }
+
     }
 }
 

@@ -1,14 +1,20 @@
+import java.util.Arrays;
 
 public class GameField {
     private String[][] gameField;
-    String x = "X";
-    String o = "O";
-    int counterXandO = 0;
+    //String x = "X";
+    //String o = "O";
 
+    /**
+     * Constructor of the game field.
+     */
     public GameField(int row, int col) {
-        gameField = new String[row][col];
+        gameField = new String[row][col+2];
     }
 
+    /**
+     * This method outputs game field on the screen.
+     */
     public void outputGameField() {
         System.out.println("=========");
         for (int i = 0; i < gameField.length; i++) {
@@ -31,16 +37,13 @@ public class GameField {
     }
 
     public void setX(int row, int col) {
-        gameField[row][col] = x;
+        gameField[row][col] = "X";
         outputGameField();
-        counterXandO++;
-
     }
 
     public void setO(int row, int col) {
-        gameField[row][col] = o;
+        gameField[row][col] = "O";
         outputGameField();
-        counterXandO++;
 
     }
 
@@ -59,4 +62,13 @@ public class GameField {
     public boolean isCellWithXorO(int row, int col, String xO) {
         return gameField[row][col].equals(xO);
     }
+
+//    @Override
+//    public String toString() {
+//        return "GameField{" +
+//                "gameField=" + Arrays.toString(gameField) +
+//                ", x='" + x + '\'' +
+//                ", o='" + o + '\'' +
+//                '}';
+//    }
 }
