@@ -176,7 +176,7 @@ public class Main {
         // Rows.
         for (int row = 0; row < gameField.getLengthRow(); row++) {
             for (int col = 0; col < gameField.getLengthCol(); col++) {
-                if (gameField.isCellWithXorO(row, col, xOrO)) {
+                if (gameField.isOccupied(row, col, xOrO)) {
                     counter++;
                     if (counter == 3) return true;
                 }
@@ -187,7 +187,7 @@ public class Main {
         // Cols.
         for (int col = 0; col <= 3; col++) {
             for (int row = 0; row < gameField.getLengthRow(); row++) {
-                if (gameField.isCellWithXorO(row, col, xOrO)) {
+                if (gameField.isOccupied(row, col, xOrO)) {
                     counter++;
                     if (counter == 3) return true;
                 }
@@ -196,12 +196,12 @@ public class Main {
         }
 
         // Diagonals.
-        return ((gameField.isCellWithXorO(0, 1, xOrO)
-                && gameField.isCellWithXorO(1, 2, xOrO)
-                && gameField.isCellWithXorO(2, 3, xOrO))
-                || (gameField.isCellWithXorO(2, 1, xOrO)
-                && gameField.isCellWithXorO(1, 2, xOrO)
-                && gameField.isCellWithXorO(0, 3, xOrO)));
+        return ((gameField.isOccupied(0, 1, xOrO)
+                && gameField.isOccupied(1, 2, xOrO)
+                && gameField.isOccupied(2, 3, xOrO))
+                || (gameField.isOccupied(2, 1, xOrO)
+                && gameField.isOccupied(1, 2, xOrO)
+                && gameField.isOccupied(0, 3, xOrO)));
     }
 
     /**
@@ -250,7 +250,7 @@ public class Main {
         int counter = 0;
         for (int row = 0; row < gameField.getLengthRow(); row++) {
             for (int col = 0; col < gameField.getLengthCol(); col++) {
-                if (gameField.isCellWithXorO(row, col, xOrO)) {
+                if (gameField.isOccupied(row, col, xOrO)) {
                     counter++;
 
                     if (counter == 2) {
@@ -283,7 +283,7 @@ public class Main {
         for (int col = 0; col < gameField.getLengthCol(); col++) {
             for (int row = 0; row < gameField.getLengthRow(); row++) {
 
-                if (gameField.isCellWithXorO(row, col, xOrO)) {
+                if (gameField.isOccupied(row, col, xOrO)) {
                     counter++;
 
                     if (counter == 2) {
@@ -312,42 +312,42 @@ public class Main {
      */
     private static void checkDiagonals(GameField gameField, String xOrO) {
 
-        if (gameField.isNotOccupied(0,1) && gameField.isCellWithXorO(1,2,xOrO) && gameField.isCellWithXorO(2,3,xOrO)) {
+        if (gameField.isNotOccupied(0,1) && gameField.isOccupied(1,2,xOrO) && gameField.isOccupied(2,3,xOrO)) {
             gameField.setO(0,1);
             counterXandO++;
             moveCounter++;
             return;
         }
 
-        if (gameField.isCellWithXorO(0,1,xOrO) && gameField.isNotOccupied(1,2) && gameField.isCellWithXorO(2,3,xOrO)) {
+        if (gameField.isOccupied(0,1,xOrO) && gameField.isNotOccupied(1,2) && gameField.isOccupied(2,3,xOrO)) {
             gameField.setO(1,2);
             counterXandO++;
             moveCounter++;
             return;
         }
 
-        if (gameField.isCellWithXorO(0,1,xOrO) && gameField.isCellWithXorO(1,2,xOrO) && gameField.isNotOccupied(2,3)) {
+        if (gameField.isOccupied(0,1,xOrO) && gameField.isOccupied(1,2,xOrO) && gameField.isNotOccupied(2,3)) {
             gameField.setO(2,3);
             counterXandO++;
             moveCounter++;
             return;
         }
 
-        if (gameField.isNotOccupied(2,1) && gameField.isCellWithXorO(1,2,xOrO) && gameField.isCellWithXorO(0,3,xOrO)) {
+        if (gameField.isNotOccupied(2,1) && gameField.isOccupied(1,2,xOrO) && gameField.isOccupied(0,3,xOrO)) {
             gameField.setO(2,1);
             counterXandO++;
             moveCounter++;
             return;
         }
 
-        if (gameField.isCellWithXorO(2,1,xOrO) && gameField.isNotOccupied(1,2) && gameField.isCellWithXorO(0,3,xOrO)) {
+        if (gameField.isOccupied(2,1,xOrO) && gameField.isNotOccupied(1,2) && gameField.isOccupied(0,3,xOrO)) {
             gameField.setO(1,2);
             counterXandO++;
             moveCounter++;
             return;
         }
 
-        if (gameField.isCellWithXorO(2,1,xOrO) && gameField.isCellWithXorO(1,2,xOrO) && gameField.isNotOccupied(0,3)) {
+        if (gameField.isOccupied(2,1,xOrO) && gameField.isOccupied(1,2,xOrO) && gameField.isNotOccupied(0,3)) {
             gameField.setO(0,3);
             counterXandO++;
             moveCounter++;

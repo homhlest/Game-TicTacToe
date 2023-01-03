@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class GameField {
     private String[][] gameField;
     //String x = "X";
@@ -59,7 +57,7 @@ public class GameField {
         return gameField[row][col].equals(" ");
     }
 
-    public boolean isCellWithXorO(int row, int col, String xO) {
+    public boolean isOccupied(int row, int col, String xO) {
         return gameField[row][col].equals(xO);
     }
 }
