@@ -57,7 +57,7 @@ public class GameField {
         return gameField[row][col].equals(" ");
     }
 
-    public boolean isOccupied(int row, int col, String xO) {
+    public boolean isOccupiedByXorO(int row, int col, String xO) {
         return gameField[row][col].equals(xO);
     }
 }
