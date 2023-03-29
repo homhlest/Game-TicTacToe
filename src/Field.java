@@ -45,7 +45,6 @@ public class Field {
     public void setO(int row, int col) {
         gameField[row][col] = "O";
         outputGameField();
-
     }
 
     public int getLengthRow() {

@@ -2,8 +2,8 @@
 import java.util.Scanner;
 
 /**
- * This class is responsible for the start of the new game
- * and exit from the game.
+ * This class is responsible for the START of the new game
+ * and EXIT from the game. Also, here the game starts.
  */
 
 public class Game {
@@ -16,7 +16,7 @@ public class Game {
             Scanner scanner = new Scanner(System.in);
             String command = scanner.nextLine();
             Party.resetCounters();
-            startGame(command);
+            startParty(command);
             if (command.equals(EXIT)) { // Exit from game.
                 System.out.println("Game over.");
                 break;
@@ -29,7 +29,7 @@ public class Game {
      *
      * @param command user input for start game or exit from game.
      */
-    private static void startGame(String command) {
+    private static void startParty(String command) {
         if (START.equals(command)) {
             Field gameFieldArray = new Field(3, 3);
             gameFieldArray.outputGameField();
