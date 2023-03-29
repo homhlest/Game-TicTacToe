@@ -8,7 +8,6 @@ import java.util.Scanner;
 public class Game {
     public static final String START = "s";
     public static final String EXIT = "e";
-
     public static void start() {
         while (true) {
             System.out.println("Start: s | Exit: e ");

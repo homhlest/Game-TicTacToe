@@ -4,7 +4,6 @@
  * This class checks if there is a resul in the game (draw or winner).
  */
 public class ResultController {
-
     /**
      * This method checks if is the winner (three X/O in row, three X/O in col, three X/O in diagonals).
      *

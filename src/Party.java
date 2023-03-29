@@ -8,7 +8,6 @@ import java.util.Scanner;
 public class Party {
     public static int counterXandO; // Amount of X and O on the field in order to define the draw.
     public static int moveCounter; // Amount of moves to avoid more than one move by one player.
-
     /**
      * This method is responsible for the party as whole.
      *

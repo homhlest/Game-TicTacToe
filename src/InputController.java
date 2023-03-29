@@ -3,7 +3,6 @@
  * This class checks user input.
  */
 public class InputController {
-
     /**
      * This method checks user input.
      *
