@@ -1,11 +1,6 @@
 public class GameField {
     private String[][] gameField;
-    //String x = "X";
-    //String o = "O";
 
-    /**
-     * Constructor of the game field.
-     */
     public GameField(int row, int col) {
         gameField = new String[row][col+2];
     }
