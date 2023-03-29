@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 /**
  * This class is responsible for the START of the new game
- * and EXIT from the game. Also, here the game starts.
+ * and EXIT from the game.
  */
 public class Game {
     public static final String START = "s";
