@@ -1,9 +1,9 @@
+
 import java.util.Random;
 import java.util.Scanner;
 
 /**
  * This class is responsible for the logic of each party in the game.
- *
  */
 
 public class Party {
@@ -25,14 +25,16 @@ public class Party {
 
             String c1Input = scanner.next();
             // Check if first input is a digit (ASCII) and is in a range from 1 to 3.
-            if (InputCheck.isNumber(c1Input) && InputCheck.isInRange(Integer.parseInt((c1Input)))) c1 = Integer.parseInt((c1Input)) - 1;
+            if (InputCheck.isNumber(c1Input) && InputCheck.isInRange(Integer.parseInt((c1Input))))
+                c1 = Integer.parseInt((c1Input)) - 1;
             else {
                 continue;
             }
 
             String c2Input = scanner.next();
             // Check if second input is a digit (ASCII) and is in a range from 1 to 3.
-            if (InputCheck.isNumber(c2Input) && InputCheck.isInRange(Integer.parseInt((c2Input)))) c2 = Integer.parseInt((c2Input));
+            if (InputCheck.isNumber(c2Input) && InputCheck.isInRange(Integer.parseInt((c2Input))))
+                c2 = Integer.parseInt((c2Input));
             else {
                 continue;
             }
@@ -283,6 +285,5 @@ public class Party {
             counterXandO++;
             moveCounter++;
         }
-
     }
 }

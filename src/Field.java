@@ -10,7 +10,7 @@ public class Field {
     private String[][] gameField;
 
     public Field(int row, int col) {
-        gameField = new String[row][col+2];
+        gameField = new String[row][col + 2];
     }
 
     /**
@@ -25,7 +25,7 @@ public class Field {
                     gameField[i][j] = "|";
                 } else if (gameField[i][j] != null && gameField[i][j].equals("X")) {
                     gameField[i][j] = "X";
-                } else if(gameField[i][j] != null && gameField[i][j].equals("O")) {
+                } else if (gameField[i][j] != null && gameField[i][j].equals("O")) {
                     gameField[i][j] = "O";
                 } else {
                     gameField[i][j] = " ";
