@@ -1,7 +1,7 @@
 
 
 /**
- * This class checks if there is a resul in the game (draw or winner).
+ * This class checks if there is a result in the game (draw or winner).
  */
 public class ResultController {
     /**
