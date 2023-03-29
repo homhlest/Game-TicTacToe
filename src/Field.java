@@ -5,7 +5,6 @@ import java.util.Arrays;
  * This class with methods is responsible for the game field.
  * It allows to print the field on the screen, checks cells, sets O and X.
  */
-
 public class Field {
     private String[][] gameField;
 

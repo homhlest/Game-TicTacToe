@@ -5,7 +5,6 @@
  * There is no selection of the level difficulty.
  * The player always starts first.
  */
-
 public class Main {
     public static void main(String[] args) {
         Game.start();

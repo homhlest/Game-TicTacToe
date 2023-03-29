@@ -23,7 +23,6 @@ public class ResultController {
             }
             counter = 0;
         }
-
         // Cols.
         for (int col = 0; col <= 3; col++) {
             for (int row = 0; row < gameField.getLengthRow(); row++) {
@@ -34,7 +33,6 @@ public class ResultController {
             }
             counter = 0;
         }
-
         // Diagonals.
         return ((gameField.isOccupiedByXorO(0, 1, xOrO)
                 && gameField.isOccupiedByXorO(1, 2, xOrO)
@@ -51,13 +49,11 @@ public class ResultController {
      * @return if there is result of the game.
      */
     public static boolean isResult(Field gameField) {
-
         /*Condition for draw.*/
         if (isWinner(gameField, "X") && isWinner(gameField, "O") || isDraw()) {
             System.out.println("It's a draw.\n");
             return true;
         }
-
         /*Condition for X win.*/
         if (isWinner(gameField, "X")) {
             System.out.println("You win!\n");

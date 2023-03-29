@@ -5,7 +5,6 @@ import java.util.Scanner;
  * This class is responsible for the START of the new game
  * and EXIT from the game. Also, here the game starts.
  */
-
 public class Game {
     public static final String START = "s";
     public static final String EXIT = "e";
