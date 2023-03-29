@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class Field {
     private String[][] gameField;
@@ -55,6 +56,13 @@ public class Field {
 
     public boolean isOccupiedByXorO(int row, int col, String xO) {
         return gameField[row][col].equals(xO);
+    }
+
+    @Override
+    public String toString() {
+        return "Field{" +
+                "gameField=" + Arrays.toString(gameField) +
+                '}';
     }
 }
 
