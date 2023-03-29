@@ -43,7 +43,6 @@ public class Game {
             }
 
             if (counterXandO < 9) moveO(gameField); // O moves
-            System.out.println(counterXandO);
 
             if (isResult(gameField)) break; // Result
         }
