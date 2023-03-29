@@ -1,8 +1,8 @@
 
-public class GameField {
+public class Field {
     private String[][] gameField;
 
-    public GameField(int row, int col) {
+    public Field(int row, int col) {
         gameField = new String[row][col+2];
     }
 
