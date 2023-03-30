@@ -1,4 +1,3 @@
-
 /**
  * This class controls the moves by checking rows and cols.
  * If there is two similar elements in one row or col, third cell

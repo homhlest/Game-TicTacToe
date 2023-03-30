@@ -1,4 +1,3 @@
-
 /**
  * This program is a cut down version of the TicTacToe game.
  * The level is difficult.

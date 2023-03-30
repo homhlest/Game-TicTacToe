@@ -1,4 +1,3 @@
-
 /**
  * This class checks user input.
  */
