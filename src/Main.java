@@ -1,7 +1,7 @@
 /**
  * This program is a cut down version of the TicTacToe game.
  * The level is difficult.
- * There is no selection of the level difficulty.
+ * There is no selection of the level.
  * The player always starts first.
  */
 public class Main {
