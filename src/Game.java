@@ -1,12 +1,13 @@
 import java.util.Scanner;
 
 /**
- * This class is responsible for the START of the new game
- * and EXIT from the game.
+ * This class is responsible for the START
+ * of the new game and EXIT from the game.
  */
 public class Game {
     public static final String START = "s";
     public static final String EXIT = "e";
+
     public static void start() {
         while (true) {
             System.out.println("Start: s | Exit: e ");
