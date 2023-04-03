@@ -8,7 +8,7 @@ public class Game {
     public static final String START = "s";
     public static final String EXIT = "e";
 
-    public static void start() {
+    public static void start() throws InterruptedException {
         while (true) {
             System.out.println("Start: s | Exit: e ");
             Scanner scanner = new Scanner(System.in);
@@ -27,8 +27,11 @@ public class Game {
      *
      * @param command user input for start game or exit from game.
      */
-    private static void startParty(String command) {
+    private static void startParty(String command) throws InterruptedException {
         if (START.equals(command)) {
+            Thread cd = new Thread(new CountDown());
+            cd.start();
+            cd.join();
             Field gameFieldArray = new Field(3, 3);
             gameFieldArray.outputGameField();
             Party.start(gameFieldArray); // Game.
