@@ -10,11 +10,7 @@ public class InputController {
      * @return is input correct or not.
      */
     public static boolean isInputCorrect(String input) {
-        if (isInRange(input) && isNumber(input)) {
-            return true;
-        } else {
-            return false;
-        }
+        return isInRange(input) && isNumber(input);
     }
 
     /**
