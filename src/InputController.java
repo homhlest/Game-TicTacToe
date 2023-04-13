@@ -6,7 +6,7 @@ public class InputController {
     /**
      * This method checks user input.
      *
-     * @param input input of coordinate.
+     * @param input is input of coordinate.
      * @return is input correct or not.
      */
     public static boolean isInputCorrect(String input) {
