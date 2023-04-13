@@ -32,9 +32,9 @@ public class Game {
             Thread cd = new Thread(new CountDown());
             cd.start();
             cd.join();
-            Field gameFieldArray = new Field(3, 3);
-            gameFieldArray.outputGameField();
-            Party.start(gameFieldArray); // Game.
+            Field gameField = new Field(3, 3);
+            gameField.outputGameField();
+            Party.start(gameField); // Game.
         } else if ((!EXIT.equals(command))) {
             System.out.println("Wrong input.\n");
         }

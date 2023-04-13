@@ -22,16 +22,16 @@ public class Party {
             int c1, c2; // For transforming input string into int.
 
             String c1Input = scanner.next();
-            // Check if first input is a digit (ASCII) and is in a range from 1 to 3.
-            if (InputController.isNumber(c1Input) && InputController.isInRange(Integer.parseInt((c1Input))))
+            // Check if first input is a digit and is in a range from 1 to 3.
+            if (InputController.isInputCorrect(c1Input))
                 c1 = Integer.parseInt((c1Input)) - 1;
             else {
                 continue;
             }
 
             String c2Input = scanner.next();
-            // Check if second input is a digit (ASCII) and is in a range from 1 to 3.
-            if (InputController.isNumber(c2Input) && InputController.isInRange(Integer.parseInt((c2Input))))
+            // Check if second input is a digit and is in a range from 1 to 3.
+            if (InputController.isInputCorrect(c2Input))
                 c2 = Integer.parseInt((c2Input));
             else {
                 continue;

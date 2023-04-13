@@ -2,14 +2,29 @@
  * This class checks user input.
  */
 public class InputController {
+
     /**
      * This method checks user input.
      *
-     * @param c input of coordinate.
+     * @param input input of coordinate.
+     * @return is input correct or not.
+     */
+    public static boolean isInputCorrect(String input) {
+        if (isInRange(input) && isNumber(input)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * This method checks user input.
+     *
+     * @param input input of coordinate.
      * @return is input in the range (1,3) or not.
      */
-    public static boolean isInRange(int c) {
-        if (c > 3) { // Check if input is in range from 1 to 3.
+    public static boolean isInRange(String input) {
+        if (!input.matches("[1-3]")) {
             System.out.println("Coordinates should be from 1 to 3!");
             return false;
         }
@@ -19,15 +34,13 @@ public class InputController {
     /**
      * This method checks if the input is a number.
      *
-     * @param coor1Input input of coordinate.
+     * @param input input of coordinate.
      * @return is number.
      */
-    public static boolean isNumber(String coor1Input) {
-        for (int i = 0; i < coor1Input.length(); i++) {
-            if ((coor1Input.charAt(i) < 48) || (coor1Input.charAt(i) > 57)) {
-                System.out.println("You should enter two numbers.");
-                return false;
-            }
+    public static boolean isNumber(String input) {
+        if (!input.matches("\\d")) {
+            System.out.println("You should enter two numbers.");
+            return false;
         }
         return true;
     }
